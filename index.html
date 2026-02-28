@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Route Optimizer | Open-Source Edition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS (FREE Maps) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="icon">🚚</span>
+                <h1>RouteAI<span>Free</span></h1>
+            </div>
+
+            <div class="info-alert">
+                <small>🚀 Open-Source mode active. No API Keys required.</small>
+            </div>
+
+            <div class="input-group">
+                <h3>📍 Store Location</h3>
+                <input type="text" id="store-address" placeholder="e.g. Gitam University, Visakhapatnam"
+                    class="styled-input">
+            </div>
+
+            <div class="input-group">
+                <div class="header-row">
+                    <h3>👥 Customer Delivery Points</h3>
+                    <button id="add-customer" class="icon-btn" title="Add Stop">+</button>
+                </div>
+                <div id="customer-list">
+                    <div class="customer-entry">
+                        <input type="text" placeholder="e.g. Rushikonda Beach" class="styled-input customer-addr">
+                    </div>
+                </div>
+            </div>
+
+            <button id="optimize-btn" class="primary-btn">Compute Optimized Route</button>
+
+            <div id="results-panel" class="results-panel hidden">
+                <h3>📊 Optimization Summary</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="label">Total Distance</span>
+                        <span class="value" id="res-distance">-</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="label">Total Time</span>
+                        <span class="value" id="res-time">-</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="label">Total Cost</span>
+                        <span class="value" id="res-cost">-</span>
+                    </div>
+                </div>
+
+                <div class="explanation-box">
+                    <h4>🤖 AI Justification</h4>
+                    <p id="res-explanation"></p>
+                </div>
+
+                <div class="itinerary">
+                    <h4>📝 Trip Itinerary</h4>
+                    <ul id="itinerary-list"></ul>
+                </div>
+            </div>
+        </aside>
+
+        <main class="map-container">
+            <div id="map"></div>
+            <div class="map-overlay">
+                <div id="status-badge" class="badge">Awaiting Input...</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Leaflet JS (FREE Maps) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
